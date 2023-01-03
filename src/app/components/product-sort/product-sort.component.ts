@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {combineLatest, map, Observable, of, startWith} from 'rxjs';
 import { ProductModel } from '../../models/products.model';
 import { ProductsService } from '../../services/products.service';
@@ -14,23 +14,28 @@ import { ProductsService } from '../../services/products.service';
 export class ProductSortComponent {
   readonly productsList$: Observable<ProductModel[]> = this._productsService.getAll();
   readonly form: FormGroup = new FormGroup({
-    order: new FormControl('', Validators.required),
+    order: new FormControl(''),
   });
   readonly orderOptions$: Observable<string[]> = of(['asc', 'desc']);
   readonly sortedList$: Observable<ProductModel[]> = combineLatest([
-    this.productsList$,
-    this.form.valueChanges.pipe(map(form => form.order), startWith(''))
+    this._productsService.getAll(),
+    this.form.valueChanges.pipe(startWith({ order: '' })),
   ]).pipe(
-    map(([products, order] : [ProductModel[], string]) => {
-      return products.sort((a, b) => {
-        if (a.title > b.title) {
-          return order === 'asc' ? 1 : -1;
-        }
-        if (a.title < b.title) {
-          return order === 'desc' ? 1 : -1;
-        }
-        return 0;
-      })
+    map(([products, form]) => {
+      if (!!form.order) {
+        return products.sort((a, b) => {
+          if (a.title > b.title) {
+            return form.order === 'asc' ? 1 : -1;
+          }
+          if (a.title < b.title) {
+            return form.order === 'desc' ? 1 : -1;
+          }
+          return 0;
+        })
+      } else {
+        return []
+      }
+
     })
   )
 

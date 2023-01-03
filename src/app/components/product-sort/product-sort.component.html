@@ -13,10 +13,9 @@
     </form>
   </mat-card-content>
 </mat-card>
-
 <mat-card>
   <mat-card-title>Products</mat-card-title>
-  <mat-card-content *ngIf="!form.get('order')?.invalid">
+  <mat-card-content>
     <mat-list role="list">
       <mat-list-item role="listitem" *ngFor="let item of sortedList$ | async">
         {{ item.title }}
@@ -25,3 +24,4 @@
     </mat-list>
   </mat-card-content>
 </mat-card>
+
