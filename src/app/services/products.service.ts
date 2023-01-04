@@ -9,6 +9,10 @@ export class ProductsService {
   getAll(): Observable<ProductModel[]> {
     return this._httpClient.get<ProductModel[]>('https://fakestoreapi.com/products');
   }
+
+  getCategories(): Observable<string[]> {
+    return this._httpClient.get<string[]>('https://fakestoreapi.com/products/categories');
+  }
   constructor(private _httpClient: HttpClient) {
   }
 }
