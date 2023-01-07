@@ -1,0 +1,26 @@
+<form>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Country</mat-label>
+      <input #inputCountry matInput type="text" placeholder="Country" [formControl]="country">
+    </mat-form-field>
+  </div>
+</form>
+<div *ngIf="inputCountry.value.length > 0; else emptyState">
+  <mat-card *ngIf="universityList$ | async as list">
+    <mat-card-content *ngIf="list.length > 0; else wrongState">
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let item of list">
+          {{ item.name }}
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<ng-template #emptyState>
+  <p>Type any valid country in a searchbox above</p>
+</ng-template>
+<ng-template #wrongState>
+  <p>Did not find any universities for this country :(</p>
+</ng-template>
