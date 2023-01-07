@@ -5,6 +5,7 @@ import {MultiJobsComponent} from './components/multi-jobs/multi-jobs.component';
 import {CategoriesRadioComponent} from './components/categories-radio/categories-radio.component';
 import {UsersSortComponent} from './components/users-sort/users-sort.component';
 import {SearchUniversityComponent} from './components/search-university/search-university.component';
+import {MultiProductsSearchComponent} from './components/multi-products-search/multi-products-search.component';
 import {ProductSortComponentModule} from './components/product-sort/product-sort.component-module';
 import {ProductsServiceModule} from './services/products.service-module';
 import {MultiJobsComponentModule} from './components/multi-jobs/multi-jobs.component-module';
@@ -12,6 +13,9 @@ import {CategoriesRadioComponentModule} from './components/categories-radio/cate
 import {UsersSortComponentModule} from './components/users-sort/users-sort.component-module';
 import {SearchUniversityComponentModule} from './components/search-university/search-university.component-module';
 import {UniversitiesServiceModule} from './services/universities.service-module';
+import {
+  MultiProductsSearchComponentModule
+} from './components/multi-products-search/multi-products-search.component-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([{path: 'products-sort', component: ProductSortComponent}, {
@@ -20,10 +24,10 @@ import {UniversitiesServiceModule} from './services/universities.service-module'
   }, {path: 'categories', component: CategoriesRadioComponent}, {
     path: 'users-sort',
     component: UsersSortComponent
-  }, {
-    path: 'search-universities',
-    component: SearchUniversityComponent
-  }]), ProductSortComponentModule, ProductsServiceModule, MultiJobsComponentModule, CategoriesRadioComponentModule, UsersSortComponentModule, SearchUniversityComponentModule, UniversitiesServiceModule],
+  }, {path: 'search-universities', component: SearchUniversityComponent}, {
+    path: 'products-search',
+    component: MultiProductsSearchComponent
+  }]), ProductSortComponentModule, ProductsServiceModule, MultiJobsComponentModule, CategoriesRadioComponentModule, UsersSortComponentModule, SearchUniversityComponentModule, UniversitiesServiceModule, MultiProductsSearchComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
