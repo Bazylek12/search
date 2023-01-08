@@ -7,6 +7,9 @@ import {UsersSortComponent} from './components/users-sort/users-sort.component';
 import {SearchUniversityComponent} from './components/search-university/search-university.component';
 import {MultiProductsSearchComponent} from './components/multi-products-search/multi-products-search.component';
 import {CryptoAutocompleteComponent} from './components/crypto-autocomplete/crypto-autocomplete.component';
+import {
+  CarsAutocompleteSearchComponent
+} from './components/cars-autocomplete-search/cars-autocomplete-search.component';
 import {ProductSortComponentModule} from './components/product-sort/product-sort.component-module';
 import {ProductsServiceModule} from './services/products.service-module';
 import {MultiJobsComponentModule} from './components/multi-jobs/multi-jobs.component-module';
@@ -18,6 +21,9 @@ import {
   MultiProductsSearchComponentModule
 } from './components/multi-products-search/multi-products-search.component-module';
 import {CryptoAutocompleteComponentModule} from './components/crypto-autocomplete/crypto-autocomplete.component-module';
+import {
+  CarsAutocompleteSearchComponentModule
+} from './components/cars-autocomplete-search/cars-autocomplete-search.component-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([{path: 'products-sort', component: ProductSortComponent}, {
@@ -29,10 +35,10 @@ import {CryptoAutocompleteComponentModule} from './components/crypto-autocomplet
   }, {path: 'search-universities', component: SearchUniversityComponent}, {
     path: 'products-search',
     component: MultiProductsSearchComponent
-  }, {
-    path: 'crypto-autocomplete',
-    component: CryptoAutocompleteComponent
-  }]), ProductSortComponentModule, ProductsServiceModule, MultiJobsComponentModule, CategoriesRadioComponentModule, UsersSortComponentModule, SearchUniversityComponentModule, UniversitiesServiceModule, MultiProductsSearchComponentModule, CryptoAutocompleteComponentModule],
+  }, {path: 'crypto-autocomplete', component: CryptoAutocompleteComponent}, {
+    path: 'cars-autocomplete',
+    component: CarsAutocompleteSearchComponent
+  }]), ProductSortComponentModule, ProductsServiceModule, MultiJobsComponentModule, CategoriesRadioComponentModule, UsersSortComponentModule, SearchUniversityComponentModule, UniversitiesServiceModule, MultiProductsSearchComponentModule, CryptoAutocompleteComponentModule, CarsAutocompleteSearchComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

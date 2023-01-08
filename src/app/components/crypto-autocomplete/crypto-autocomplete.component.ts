@@ -22,7 +22,7 @@ export class CryptoAutocompleteComponent {
     this.cryptoForm.valueChanges.pipe(startWith({ cryptoName: ''}))
   ]).pipe(
     map(([cryptos, form]) =>
-      cryptos.filter(crypto => crypto.symbol.toLowerCase().includes(form.cryptoName?.toLowerCase()))
+      cryptos.filter(crypto => crypto.symbol.toLowerCase().includes(form.cryptoName? form.cryptoName.toLowerCase() : ''))
     ));
 
   addNewChip(symbol: CryptoModel): void {
