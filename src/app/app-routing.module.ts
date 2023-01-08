@@ -6,6 +6,7 @@ import {CategoriesRadioComponent} from './components/categories-radio/categories
 import {UsersSortComponent} from './components/users-sort/users-sort.component';
 import {SearchUniversityComponent} from './components/search-university/search-university.component';
 import {MultiProductsSearchComponent} from './components/multi-products-search/multi-products-search.component';
+import {CryptoAutocompleteComponent} from './components/crypto-autocomplete/crypto-autocomplete.component';
 import {ProductSortComponentModule} from './components/product-sort/product-sort.component-module';
 import {ProductsServiceModule} from './services/products.service-module';
 import {MultiJobsComponentModule} from './components/multi-jobs/multi-jobs.component-module';
@@ -16,6 +17,7 @@ import {UniversitiesServiceModule} from './services/universities.service-module'
 import {
   MultiProductsSearchComponentModule
 } from './components/multi-products-search/multi-products-search.component-module';
+import {CryptoAutocompleteComponentModule} from './components/crypto-autocomplete/crypto-autocomplete.component-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([{path: 'products-sort', component: ProductSortComponent}, {
@@ -27,7 +29,10 @@ import {
   }, {path: 'search-universities', component: SearchUniversityComponent}, {
     path: 'products-search',
     component: MultiProductsSearchComponent
-  }]), ProductSortComponentModule, ProductsServiceModule, MultiJobsComponentModule, CategoriesRadioComponentModule, UsersSortComponentModule, SearchUniversityComponentModule, UniversitiesServiceModule, MultiProductsSearchComponentModule],
+  }, {
+    path: 'crypto-autocomplete',
+    component: CryptoAutocompleteComponent
+  }]), ProductSortComponentModule, ProductsServiceModule, MultiJobsComponentModule, CategoriesRadioComponentModule, UsersSortComponentModule, SearchUniversityComponentModule, UniversitiesServiceModule, MultiProductsSearchComponentModule, CryptoAutocompleteComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
